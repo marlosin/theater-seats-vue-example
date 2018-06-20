@@ -2,7 +2,7 @@
   "ranks": [ "rank1", "rank2", "rank3"],
   "sections": [
     {
-      "name": "main hall",
+      "name": "Main hall",
       "rows": [
         {
           "row": "1",
@@ -105,6 +105,102 @@
             },
             {
               "seat": "2",
+              "rank": "rank3"
+            }
+          ]
+        },
+        {
+          "row": "2",
+          "seats": [
+            {
+              "seat": "1",
+              "rank": "rank2"
+            },
+            {
+              "seat": "3",
+              "rank": "rank2"
+            },
+            {
+              "seat": "5",
+              "rank": "rank2"
+            },
+            {
+              "seat": "6",
+              "rank": "rank2"
+            },
+            {
+              "seat": "4",
+              "rank": "rank2"
+            },
+            {
+              "seat": "2",
+              "rank": "rank2"
+            }
+          ]
+        },
+        {
+          "row": "3",
+          "seats": [
+            {
+              "seat": "1",
+              "rank": "rank2"
+            },
+            {
+              "seat": "3",
+              "rank": "rank2"
+            },
+            {
+              "seat": "5",
+              "rank": "rank2"
+            },
+            {
+              "seat": "6",
+              "rank": "rank2"
+            },
+            {
+              "seat": "4",
+              "rank": "rank2"
+            },
+            {
+              "seat": "2",
+              "rank": "rank2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Loge",
+      "rows": [
+        {
+          "row": "1",
+          "seats": [
+            {
+              "seat": "1",
+              "rank": "rank3"
+            },
+            {
+              "seat": "3",
+              "rank": "rank3"
+            },
+            {
+              "seat": "4",
+              "rank": "rank3"
+            },
+            {
+              "seat": "2",
+              "rank": "rank3"
+            },
+            {
+              "seat": "6",
+              "rank": "rank3"
+            },
+            {
+              "seat": "5",
+              "rank": "rank3"
+            },
+            {
+              "seat": "7",
               "rank": "rank3"
             }
           ]

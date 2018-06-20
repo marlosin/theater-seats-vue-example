@@ -1,0 +1,6 @@
+<div class="theater-section">
+  <h3>{{section.name}}</h3>
+  <div v-for="row in section.rows" class="theater-section-row">
+    <i v-for="seat in row.seats" class="material-icons theater-seat">event_seat</i>
+  </div>
+</div>

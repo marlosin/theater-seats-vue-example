@@ -1,5 +1,9 @@
-
 <section class="theater-layout">
-
+  <div class="theater-sections">
+    <theater-layout-section
+      v-for="section in theaterLayout.sections"
+      :key="section.name"
+      :section="section"
+    />
+  </div>
 </section>
-

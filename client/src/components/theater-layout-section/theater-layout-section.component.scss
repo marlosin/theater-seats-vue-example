@@ -1,0 +1,47 @@
+@import 'src/styles/variables';
+
+.theater-section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+
+  h3 {
+    font-weight: 700;
+    margin-top: 0;
+  }
+}
+
+.theater-section-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: .8rem;
+}
+
+.theater-seat {
+  background-color: $grey0;
+  border-radius: .3rem;
+  color: $accent;
+  margin-right: .8rem;
+  padding: .2rem;
+  user-select: none;
+}
+
+.rank1 {
+  background-color: $rank1;
+}
+
+.rank2 {
+  background-color: $rank2;
+}
+
+.rank3 {
+  background-color: $rank3;
+}
+
+.rank4 {
+  background-color: $rank4;
+}
+
+.rank5 {
+  background-color: $rank5;
+}

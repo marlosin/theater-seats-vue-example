@@ -5,7 +5,7 @@
       <h1>Theater Layout</h1>
     </header>
     <theater-layout
-      :layout="theaterLayout"
+      :theater-layout="theaterLayout"
       :group-data="groupData"
     />
   </main>
@@ -15,35 +15,27 @@
 import Vue from 'vue'
 // @ts-ignore
 import TheaterLayout from '@/components/theater-layout/index.vue'
-import TheaterService from './services/theater.service'
+import { theaterService } from './services/theater.service'
 import { TheaterLayoutModel } from './models/theater-layout'
 import { DataType } from './models/data-type'
 import { GroupModel } from './models/group'
+import { Component } from 'vue-property-decorator'
 
-export default Vue.extend({
-  // eslint-disable-next-line space-infix-ops
-  name: 'app',
-  components: {
-    TheaterLayout
-  },
-  data () {
-    const data: DataType = {
-      theaterLayout: {
-        ranks: [],
-        sections: []
-      },
-      groupData: [
-        { id: '', seats: [] }
-      ]
+@Component({ components: { TheaterLayout } })
+export default class App extends Vue {
+  name = 'app'
+  theaterLayout: TheaterLayoutModel = new TheaterLayoutModel()
+  groupData: GroupModel[] = []
+
+  public created (): void {
+    const loadData = async () => {
+      this.theaterLayout = await theaterService.getLayout()
+      this.groupData = await theaterService.getGroupData()
     }
 
-    return data
-  },
-  async mounted () {
-    this.theaterLayout = await TheaterService.getLayout()
-    this.groupData = await TheaterService.getGroupData()
+    loadData()
   }
-})
+}
 </script>
 
 <style src="./styles/app.scss" lang="scss"></style>

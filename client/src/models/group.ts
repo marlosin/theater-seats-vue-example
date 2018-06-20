@@ -1,4 +1,4 @@
-interface GroupSection {
+interface GroupSeat {
   section: string
   row: string
   seat: string
@@ -6,15 +6,17 @@ interface GroupSection {
 
 interface GroupModelOptions {
   id: string
-  seats: GroupSection[]
+  seats: GroupSeat[]
 }
 
 export class GroupModel implements GroupModelOptions {
-  id: string
-  seats: GroupSection[]
+  id: string = ''
+  seats: GroupSeat[] = []
 
-  public constructor (options: GroupModelOptions) {
-    this.id = options.id
-    this.seats = options.seats
+  public constructor (options?: GroupModelOptions) {
+    if (options) {
+      this.id = options.id
+      this.seats = options.seats
+    }
   }
 }
