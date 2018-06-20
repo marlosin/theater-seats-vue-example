@@ -1,14 +1,14 @@
-interface TheaterRowSeat {
+export interface TheaterSectionRowSeat {
   seat: number
   rank: string
 }
 
-interface TheaterRow {
+export interface TheaterSectionRow {
   row: number
-  seats: TheaterRowSeat[]
+  seats: TheaterSectionRowSeat[]
 }
 
 export interface TheaterSection {
   mame: string
-  rows: TheaterRow[]
+  rows: TheaterSectionRow[]
 }

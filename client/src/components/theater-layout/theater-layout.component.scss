@@ -1,5 +1,6 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
+@import 'src/styles/common';
 
 .theater-layout {
   align-items: center;
@@ -13,5 +14,27 @@
   @include shadow-higher();
   border-top: 4px solid $accent;
   background-color: #FFFFFF;
+  margin: 40px 0;
   padding: 1.2rem;
+}
+
+.theater-seats-caption {
+  margin-top: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: .5em;
+  }
+}
+
+.theater-seat-caption {
+  @include seat();
+  margin-right: .5em;
+
+  &:not([class*="rank"]) {
+    background-color: $grey1;
+  }
 }

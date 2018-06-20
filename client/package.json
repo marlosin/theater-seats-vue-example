@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
+    "@types/randomcolor": "^0.4.3",
     "axios": "^0.18.0",
+    "randomcolor": "^0.5.3",
     "vue": "^2.5.16",
     "vue-property-decorator": "^6.1.0"
   },

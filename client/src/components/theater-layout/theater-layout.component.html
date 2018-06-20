@@ -1,9 +1,20 @@
 <section class="theater-layout">
   <div class="theater-sections">
+    <ul class="theater-seats-caption">
+      <li v-for="caption in captions">
+        <i
+          class="material-icons theater-seat-caption"
+          :class="caption.styleClass"
+          :style="{ color: caption.color }">
+          event_seat</i>
+        <span>{{caption.label}}</span>
+      </li>
+    </ul>
     <theater-layout-section
       v-for="section in theaterLayout.sections"
       :key="section.name"
       :section="section"
+      :group-data="groupData"
     />
   </div>
 </section>

@@ -1,0 +1,30 @@
+@import 'variables';
+
+@mixin rank-color($color) {
+  background-color: $color;
+  color: #FFFFFF;
+}
+
+.rank1 {
+  @include rank-color($rank1);
+}
+
+.rank2 {
+  @include rank-color($rank2);
+}
+
+.rank3 {
+  @include rank-color($rank3);
+}
+
+.rank4 {
+  @include rank-color($rank4);
+}
+
+.rank5 {
+  @include rank-color($rank5);
+}
+
+.seat--occupied {
+  @include rank-color($rank5);
+}

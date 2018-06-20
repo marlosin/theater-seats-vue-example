@@ -9,3 +9,10 @@ $black: #000000;
   box-shadow: 0 3px 6px rgba($black, .16),
               0 3px 6px rgba($black, .23);
 }
+
+@mixin seat() {
+  border-radius: .3rem;
+  margin-right: .8rem;
+  padding: .2rem;
+  user-select: none;
+}
