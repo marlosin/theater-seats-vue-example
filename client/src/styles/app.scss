@@ -1,0 +1,50 @@
+@import 'variables';
+
+body {
+  background-color: white;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+header {
+  background-color: $color4;
+  border-bottom: 1px solid $grey3;
+  box-shadow: 1px 1px 5px $grey2;
+  color: $color5;
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  padding: 0.625rem;
+
+  &:before {
+    background: $color3;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: .25rem;
+  }
+
+  .app-icon {
+    margin-right: 1rem;
+    font-size: 2rem;
+    color: $accent;
+  }
+
+  h1 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+}

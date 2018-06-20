@@ -1,11 +1,14 @@
 <template>
-  <div>
-    <h1>Theater Layout - seats</h1>
+  <main>
+    <header>
+      <i class="material-icons app-icon">home</i>
+      <h1>Theater Layout</h1>
+    </header>
     <theater-layout
       :layout="theaterLayout"
       :group-data="groupData"
     />
-  </div>
+  </main>
 </template>
 
 <script lang="ts">
@@ -18,6 +21,7 @@ import { DataType } from './models/data-type'
 import { GroupModel } from './models/group'
 
 export default Vue.extend({
+  // eslint-disable-next-line space-infix-ops
   name: 'app',
   components: {
     TheaterLayout
@@ -27,37 +31,19 @@ export default Vue.extend({
       theaterLayout: {
         ranks: [],
         sections: []
-      } as TheaterLayoutModel,
+      },
       groupData: [
-        { id: '', seats: [] } as GroupModel
+        { id: '', seats: [] }
       ]
     }
 
     return data
   },
-  mounted () {
-    const load = async () => {
-      const b = await TheaterService.getLayout()
-      this.theaterLayout = b
-    }
-
-    load()
-    // this.groupData = [
-    //   {
-    //     id: '+4412323232323232',
-    //     seats: []
-    //   } as GroupModel
-    // ]
+  async mounted () {
+    this.theaterLayout = await TheaterService.getLayout()
+    this.groupData = await TheaterService.getGroupData()
   }
 })
 </script>
 
-<style lang="scss">
-#app {
-  font-family: 'Roboto', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  margin-top: 60px;
-}
-</style>
+<style src="./styles/app.scss" lang="scss"></style>
