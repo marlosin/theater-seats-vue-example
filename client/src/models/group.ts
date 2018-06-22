@@ -1,7 +1,7 @@
-interface GroupSeat {
+export interface GroupSeat {
   section: string
-  row: string
-  seat: string
+  row: number
+  seat: number
 }
 
 interface GroupModelOptions {

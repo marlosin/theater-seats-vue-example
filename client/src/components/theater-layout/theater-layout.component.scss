@@ -12,13 +12,30 @@
 
 .theater-sections {
   @include shadow-higher();
+  min-width: 20rem;
+  max-width: 50vw;
   border-top: 4px solid $accent;
   background-color: #FFFFFF;
   margin: 40px 0;
+}
+
+.theater-sections-container {
   padding: 1.2rem;
 }
 
-.theater-seats-caption {
+.theater-seats-captions {
+  background-color: $grey0;
+  padding: 1.2rem;
+
+  h4 {
+    margin-top: 0;
+    font-weight: 400;
+  }
+}
+
+.theater-seats-list {
+  display: flex;
+  flex-wrap: wrap;
   margin-top: 0;
   padding: 0;
 
@@ -26,15 +43,22 @@
     list-style-type: none;
     display: flex;
     align-items: center;
-    margin-bottom: .5em;
+    margin: 0 .5em .5em 0;
+
+    span {
+      font-size: .8rem;
+      color: $grey4;
+    }
   }
 }
 
-.theater-seat-caption {
+.seat-icon {
   @include seat();
   margin-right: .5em;
+  font-size: 1em;
+}
 
-  &:not([class*="rank"]) {
-    background-color: $grey1;
-  }
+.seat-icon--group {
+  @extend .seat-icon;
+  @include group-seat();
 }

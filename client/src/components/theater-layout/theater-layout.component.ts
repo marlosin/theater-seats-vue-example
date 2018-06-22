@@ -6,11 +6,17 @@ import { GroupModel } from '@/models/group'
 import TheaterLayoutSection from '@/components/theater-layout-section/index.vue'
 import randomColor from 'randomcolor'
 
-interface Caption {
+interface RankCaption {
   label: string
-  color?: string
-  styleClass?: string
+  styleClass: string
 }
+
+export interface GroupCaption {
+  group: GroupModel
+  color: string
+}
+
+const _groupColor = (): string => randomColor({ hue: 'orange' })
 
 @Component({ components: { TheaterLayoutSection } })
 export default class TheaterLayout extends Vue {
@@ -20,20 +26,13 @@ export default class TheaterLayout extends Vue {
   @Prop({ default: () => [] })
   groupData!: GroupModel[]
 
-  private get _rankCaptions (): Caption[] {
+  public get rankCaptions (): RankCaption[] {
     return this.theaterLayout.ranks
       .map(rank => ({ label: rank, styleClass: rank }))
   }
 
-  private get _groupDataCaptions (): Caption[] {
+  public get groupDataCaptions(): GroupCaption[] {
     return this.groupData
-      .map(groupData => ({ label: groupData.id, color: randomColor() }))
-  }
-
-  public get captions (): Caption[] {
-    return [
-      ...this._rankCaptions,
-      ...this._groupDataCaptions
-    ]
+      .map(group => ({ group, color: _groupColor() }))
   }
 }

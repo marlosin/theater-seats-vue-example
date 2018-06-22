@@ -1,13 +1,22 @@
 <div class="theater-section">
-  <h3>{{section.name}}</h3>
-  <div
-    v-for="row in section.rows"
+  <h3>{{sectionGroup.name}}</h3>
+  <ul
+    v-for="theaterSectionRow in sectionGroup.rows"
     class="theater-section-row">
-    <i
-      v-for="seat in row.seats"
-      class="material-icons theater-seat"
-      :class="seat.rank">
-      event_seat
-    </i>
-  </div>
+    <li v-for="theaterSectionRowSeat in theaterSectionRow.seats">
+      <i
+        v-if="theaterSectionRowSeat.isOccupied"
+        class="material-icons theater-seat--group"
+        :style="{ color: theaterSectionRowSeat.color }">
+        event_seat
+      </i>
+      <i
+        v-if="!theaterSectionRowSeat.isOccupied"
+        class="material-icons theater-seat"
+        :class="theaterSectionRowSeat.rank">
+        event_seat
+      </i>
+    </li>
+
+  </ul>
 </div>

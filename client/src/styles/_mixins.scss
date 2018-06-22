@@ -16,3 +16,8 @@ $black: #000000;
   padding: .2rem;
   user-select: none;
 }
+
+@mixin group-seat() {
+  background-color: #FFFFFF;
+  border: 1px solid $color1;
+}

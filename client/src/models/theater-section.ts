@@ -9,6 +9,6 @@ export interface TheaterSectionRow {
 }
 
 export interface TheaterSection {
-  mame: string
+  name: string
   rows: TheaterSectionRow[]
 }

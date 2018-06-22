@@ -1,20 +1,31 @@
 <section class="theater-layout">
   <div class="theater-sections">
-    <ul class="theater-seats-caption">
-      <li v-for="caption in captions">
-        <i
-          class="material-icons theater-seat-caption"
-          :class="caption.styleClass"
-          :style="{ color: caption.color }">
-          event_seat</i>
-        <span>{{caption.label}}</span>
-      </li>
-    </ul>
-    <theater-layout-section
-      v-for="section in theaterLayout.sections"
-      :key="section.name"
-      :section="section"
-      :group-data="groupData"
-    />
+    <div class="theater-sections-container">
+      <theater-layout-section
+        class="theater-layout-section"
+        v-for="section in theaterLayout.sections"
+        :key="section.name"
+        :section="section"
+        :group-data="groupDataCaptions"
+      />
+    </div>
+    <div class="theater-seats-captions">
+      <h4>Ranks</h4>
+      <ul class="theater-seats-list">
+        <li v-for="caption in rankCaptions">
+          <i class="material-icons seat-icon" :class="caption.styleClass">
+            event_seat</i>
+          <span>{{caption.label}}</span>
+        </li>
+      </ul>
+      <h4>Groups</h4>
+      <ul class="theater-seats-list">
+        <li v-for="caption in groupDataCaptions">
+          <i class="material-icons seat-icon--group" :style="{ color: caption.color }">
+            event_seat</i>
+          <span>{{caption.group.id}}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
