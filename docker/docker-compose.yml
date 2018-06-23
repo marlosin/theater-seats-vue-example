@@ -1,0 +1,26 @@
+version: '3'
+services:
+  api:
+    build:
+      context: ../.
+      dockerfile: docker/api/Dockerfile
+    image: theater-seats-api
+    volumes:
+      - ./../api:/usr/src/api
+      - /usr/src/api/node_modules
+    ports:
+      - '3000:3000'
+  client:
+    build:
+      context: ../.
+      dockerfile: docker/client/Dockerfile
+    image: theater-seats-client
+    links:
+      - api:api
+    volumes:
+      - ./../client:/usr/src/client
+      - /usr/src/client/node_modules
+    ports:
+      - '8080:8080'
+    depends_on:
+      - api

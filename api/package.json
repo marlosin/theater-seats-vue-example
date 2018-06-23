@@ -1,5 +1,5 @@
 {
-  "name": "seats-api",
+  "name": "theater-seats-vue-example-api",
   "main": "index.js",
   "scripts": {
     "serve": "nodemon index.js",
