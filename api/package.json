@@ -1,0 +1,17 @@
+{
+  "name": "seats-api",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nodemon": "^1.12.1",
+    "standard": "^10.0.3",
+    "standard-loader": "^6.0.1"
+  },
+  "author": "Marlos Borges",
+  "license": "MIT"
+}
