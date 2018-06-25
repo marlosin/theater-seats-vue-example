@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "An example app using Vue.js + TypeScript + StandardJS + Docker + Express",
   "scripts": {
-    "dev:install": "./install.sh",
+    "dev:install": "docker-compose -f docker/docker-compose.yml build",
     "dev:up": "docker-compose -f docker/docker-compose.yml up",
     "dev:down": "docker-compose -f docker/docker-compose.yml down",
     "dev:test": "docker-compose -f docker/docker-compose.yml run client yarn test:unit",
