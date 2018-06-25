@@ -6,7 +6,7 @@
     "dev:install": "./install.sh",
     "dev:up": "docker-compose -f docker/docker-compose.yml up",
     "dev:down": "docker-compose -f docker/docker-compose.yml down",
-    "dev:test": "docker-compose -f docker/docker-compose.yml run client yarn test",
+    "dev:test": "docker-compose -f docker/docker-compose.yml run client yarn test:unit",
     "dev:uninstall": "docker-compose -f docker/docker-compose.yml down --rmi all"
   },
   "repository": {
