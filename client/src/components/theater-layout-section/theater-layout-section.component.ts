@@ -18,7 +18,7 @@ interface MappedSectionRow {
 
 interface SectionGroup {
   name: string
-  rows: MappedSectionRow[];
+  rows: MappedSectionRow[]
 }
 
 @Component({})
@@ -29,7 +29,30 @@ export default class TheaterLayoutSection extends Vue {
   @Prop()
   groupData!: GroupCaption[]
 
+  public seatIconSelector(theaterSectionRowSeat: MappedSectionRowSeat): string[] {
+    if (theaterSectionRowSeat.isOccupied) {
+      return ['theater-seat--group']
+    }
+
+    return ['theater-seat', theaterSectionRowSeat.rank]
+  }
+
+  public seatIconStyle(theaterSectionRowSeat: MappedSectionRowSeat): { [s: string]: string } | null {
+    if (theaterSectionRowSeat.color) {
+      return { color: theaterSectionRowSeat.color }
+    }
+
+    return null
+  }
+
+  public get groups (): GroupCaption[] {
+    return this.groupData
+  }
+
   public get sectionGroup (): SectionGroup {
+    if (!this.section) {
+      return { name: '', rows: [] }
+    }
     return {
       name: this.section.name,
       rows: this._rows
@@ -47,7 +70,7 @@ export default class TheaterLayoutSection extends Vue {
 
   private _getSeats(theaterSectionRow: TheaterSectionRow): MappedSectionRowSeat[] {
     return theaterSectionRow.seats.map(theaterSectionRowSeat => {
-      const { seat, rank } = theaterSectionRowSeat;
+      const { seat, rank } = theaterSectionRowSeat
       const groupSeat = this._findGroupSeat(theaterSectionRow.row, theaterSectionRowSeat)
       return {
         seat,
@@ -60,10 +83,14 @@ export default class TheaterLayoutSection extends Vue {
 
   public _findGroupSeat(rowNumber: number, theaterSectionRowSeat: TheaterSectionRowSeat): GroupCaption | undefined {
     const findSeat = (groupSeat: GroupSeat) => {
-      return Boolean(groupSeat.row === rowNumber && groupSeat.seat === theaterSectionRowSeat.seat && groupSeat.section === this.section.name);
+      return Boolean(groupSeat.row === rowNumber
+        && groupSeat.seat === theaterSectionRowSeat.seat
+        && groupSeat.section === this.section.name)
     }
     const findGroupSeat = (groupData: GroupCaption) => Boolean(groupData.group.seats.find(findSeat))
 
-    return this.groupData.find(findGroupSeat)
+    const result = this.groups.find(findGroupSeat)
+
+    return result ? { ...result } : undefined
   }
 }

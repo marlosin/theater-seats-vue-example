@@ -5,15 +5,9 @@
     class="theater-section-row">
     <li v-for="theaterSectionRowSeat in theaterSectionRow.seats">
       <i
-        v-if="theaterSectionRowSeat.isOccupied"
-        class="material-icons theater-seat--group"
-        :style="{ color: theaterSectionRowSeat.color }">
-        event_seat
-      </i>
-      <i
-        v-if="!theaterSectionRowSeat.isOccupied"
-        class="material-icons theater-seat"
-        :class="theaterSectionRowSeat.rank">
+        class="material-icons"
+        :class="seatIconSelector(theaterSectionRowSeat)"
+        :style="seatIconStyle(theaterSectionRowSeat)">
         event_seat
       </i>
     </li>
